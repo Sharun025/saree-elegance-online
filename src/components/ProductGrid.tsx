@@ -1,78 +1,41 @@
 import { motion } from "framer-motion";
-import ProductCard from "./ProductCard";
 
 // Import product images
 import saree1 from "@/assets/products/saree-1.jpg";
 import saree2 from "@/assets/products/saree-2.jpg";
-import saree3 from "@/assets/products/saree-3.jpg";
 import saree4 from "@/assets/products/saree-4.jpg";
-import saree5 from "@/assets/products/saree-5.jpg";
-import saree6 from "@/assets/products/saree-6.jpg";
 import accessory1 from "@/assets/products/accessory-1.jpg";
-import accessory2 from "@/assets/products/accessory-2.jpg";
 
-const products = [
+const categories = [
   {
     id: 1,
     image: saree1,
-    name: "Banarasi Silk Saree",
-    price: 18500,
-    category: "Silk Sarees",
+    name: "Silk Sarees",
+    description: "Exquisite handwoven silk sarees from Kanchipuram, Banarasi, and more",
   },
   {
     id: 2,
     image: saree2,
-    name: "Kanjivaram Royal Blue",
-    price: 24500,
-    category: "Kanjivaram",
+    name: "Silk Fabrics",
+    description: "Premium silk fabrics for custom tailoring and design",
   },
   {
     id: 3,
-    image: saree3,
-    name: "Blush Pink Chiffon",
-    price: 8900,
-    category: "Chiffon",
+    image: saree4,
+    name: "Silk Dhotis",
+    description: "Traditional silk dhotis crafted with finest threads",
   },
   {
     id: 4,
-    image: saree4,
-    name: "Emerald Patola Silk",
-    price: 32000,
-    category: "Patola",
-  },
-  {
-    id: 5,
-    image: saree5,
-    name: "Golden Tussar Elegance",
-    price: 15500,
-    category: "Tussar Silk",
-  },
-  {
-    id: 6,
-    image: saree6,
-    name: "Mustard Chanderi",
-    price: 12500,
-    category: "Chanderi",
-  },
-  {
-    id: 7,
     image: accessory1,
-    name: "Pearl Jhumka Earrings",
-    price: 4500,
-    category: "Jewelry",
-  },
-  {
-    id: 8,
-    image: accessory2,
-    name: "Traditional Gold Bangles",
-    price: 6800,
-    category: "Jewelry",
+    name: "Silk Accessories",
+    description: "Elegant silk accessories to complement your attire",
   },
 ];
 
 const ProductGrid = () => {
   return (
-    <section id="shop" className="section-padding bg-background">
+    <section id="products" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -82,24 +45,45 @@ const ProductGrid = () => {
           className="text-center mb-12"
         >
           <h2 className="heading-section text-foreground mb-4">
-            Our Collection
+            Our Products
           </h2>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-            Explore our handpicked selection of exquisite sarees and accessories, 
-            each piece crafted with love and tradition.
+            Explore our curated categories of exquisite silk products, 
+            each crafted with love and tradition by master artisans.
           </p>
         </motion.div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-          {products.map((product, index) => (
-            <ProductCard
-              key={product.id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              category={product.category}
-            />
+        {/* Category Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {categories.map((category, index) => (
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative aspect-square overflow-hidden bg-card mb-4">
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
+              </div>
+
+              <div className="text-center">
+                <h3 className="font-heading text-xl font-medium text-foreground mb-2">
+                  {category.name}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {category.description}
+                </p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+
+// Add id for navigation
 import storySarees from "@/assets/story-sarees.jpg";
 import craftsmanship from "@/assets/craftsmanship.jpg";
 
@@ -21,8 +23,9 @@ const features = [
 ];
 
 const StorySection = () => {
+  // This section also serves as "About Us"
   return (
-    <section className="bg-muted">
+    <section id="about" className="bg-muted">
       {/* Image Grid */}
       <div className="grid md:grid-cols-2">
         <motion.div

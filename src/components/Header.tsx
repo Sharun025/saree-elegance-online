@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingBag, User, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "Shop All", href: "#shop" },
     { name: "Home", href: "#" },
+    { name: "About Us", href: "#about" },
+    { name: "Products", href: "#products" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -38,14 +39,12 @@ const Header = () => {
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            <button className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
-              <User className="w-5 h-5" />
-              <span className="tracking-wide">Log In</span>
-            </button>
-            <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-              <ShoppingBag className="w-5 h-5" />
-              <span className="text-sm font-medium">0</span>
-            </button>
+            <a 
+              href="#contact" 
+              className="hidden md:inline-block btn-primary text-xs py-2 px-4"
+            >
+              Get in Touch
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -78,10 +77,13 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors py-2">
-                <User className="w-5 h-5" />
-                <span className="tracking-wide">Log In</span>
-              </button>
+              <a 
+                href="#contact" 
+                className="btn-primary text-xs py-2 px-4 text-center mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Get in Touch
+              </a>
             </nav>
           </motion.div>
         )}
