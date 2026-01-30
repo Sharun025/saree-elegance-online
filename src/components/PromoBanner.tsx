@@ -24,20 +24,20 @@ const PromoBanner = () => {
           className="text-center text-primary-foreground px-4"
         >
           <p className="text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
-            Exclusive Offers
+            Premium Quality
           </p>
           <h2 className="font-heading text-4xl md:text-6xl font-semibold mb-4">
-            Limited Time Only
+            Authentic Craftsmanship
           </h2>
           <p className="text-body max-w-xl mx-auto mb-8 opacity-90">
-            Don't miss out on our special promotions on accessories. 
-            Explore our new jewelry collection and enjoy exclusive offers for a limited time.
+            Each piece in our collection is crafted by master artisans 
+            using traditional techniques passed down through generations.
           </p>
           <a 
-            href="#shop" 
+            href="#contact" 
             className="btn-gold inline-block"
           >
-            Shop Accessories
+            Contact Us
           </a>
         </motion.div>
       </div>

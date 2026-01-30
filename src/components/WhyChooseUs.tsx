@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
               the artistry of Indian weavers while embracing contemporary aesthetics.
             </p>
             <a 
-              href="#shop" 
+              href="#products" 
               className="inline-block px-8 py-3 border border-primary-foreground text-primary-foreground 
                          tracking-[0.2em] uppercase text-sm font-medium
                          transition-all duration-300 hover:bg-primary-foreground hover:text-primary"
